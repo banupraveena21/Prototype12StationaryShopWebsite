@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<style>
+
+
+</style>
+
+{% endblock %}
+
+{% block title %}Home - SupplyHive{% endblock %}
+
+{% block content %}
+
+<!-- Hero Banner -->
+<div class="container-fluid py-5">
+    <div class="row text-center text-md-start">
+        
+        <!-- Left Image (Notebook) - Lowered -->
+        <div class="col-md-4 mb-4 mb-md-0 d-flex justify-content-center align-items-end" style="transform: translateY(40px);">
+            <img src="{% static 'images/herobanner1.png' %}" class="img-fluid rounded w-100" alt="Notebook">
+        </div>
+
+        <!-- Center Offer + Backpack - Elevated -->
+        <div class="col-md-4 mb-4 mb-md-0 d-flex flex-column align-items-center justify-content-center" style="transform: translateY(-30px);">
+            <div class="bg-danger text-dark fs-3 text-center px-4 py-3 rounded" style="font-size: 1.5rem; font-weight: bold;">
+                Upto 50% off on<br>Bulk Order
+            </div>
+            <div class="mt-3">
+                <img src="{% static 'images/herobanner2.png' %}" alt="Backpack" class="img-fluid w-100">
+            </div>
+        </div>
+
+        <!-- Right Image (Highlighters) - Middle -->
+        <div class="col-md-4 mb-4 mb-md-0 d-flex justify-content-center align-items-start" style="transform: translateY(-10px);">
+            <img src="{% static 'images/herobanner3.png' %}" class="img-fluid w-100" alt="Highlighters">
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Essentials Section -->
+<div class="container py-5">
+    <div class="row text-center">
+        <h4 class="fs-2 mb-3"><strong>Essential Stationery, Exceptional Supply</strong></h4>
+        <p class="fs-4">From pens to paper, we deliver quality tools that power classrooms, offices, and creativity. <br>
+            Bulk pricing, reliable service, and everything your workspace needs - right at your fingertips.
+        </p>
+    </div>
+    <div class="row text-center mt-5">
+        <div class="col-md-4">
+            <img src="{% static 'images/essentials1.png' %}" class="img-fluid w-100" alt="Essentials 1">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/essentials2.png' %}" class="img-fluid w-100" alt="Essentials 2">
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/essentials3.png' %}" class="img-fluid w-100" alt="Essentials 3">
+        </div>
+    </div>
+</div>
+
+<!-- Product Categories -->
+<div class="container-fluid py-5" style="background-color: #e6edff;">
+    <div class="row align-items-center">
+        
+        <!-- Left Column: Text -->
+        <div class="col-md-6">
+            <h3><strong>1. Writing Essentials</strong></h3>
+            <p class="fs-5 mt-4">From everyday ballpoint pens to premium gel pens and highlighters, our writing tools ensure clarity, comfort, and reliability. Perfect for classrooms, offices, or creative spaces, these essentials are built to support productivity and expression at every level.</p>
+            
+            <h3><strong>2. Paper Products</strong></h3>
+            <p class="fs-5 mt-4">Whether it’s notebooks, notepads, printer paper, or sticky notes, our paper supplies cover every need. Designed for durability and smooth performance, these products are ideal for note-taking, organizing, printing, or planning in any setting.</p>
+            
+            <h3><strong>3. Classroom & Office Tools</strong></h3>
+            <p class="fs-5 mt-4">Keep workspaces equipped and efficient with rulers, staplers, scissors, erasers, and more. These tools bring order and precision to daily tasks, making them indispensable in both educational and professional environments.</p>
+        </div>
+
+        <!-- Right Column: Image -->
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/producthome1.png' %}" class="img-fluid" alt="Notebook and Pen" style="max-height: 500px;">
+        </div>
+        
+    </div>
+</div>
+
+
+<!-- Featured Products -->
+<div class="container py-5">
+    <h2 class="text-center mb-5"><strong>Featured Product</strong></h2>
+    <div class="row justify-content-center text-center">
+        
+        <!-- First Product Card -->
+        <div class="col-md-4 mb-4">
+            <div class="rounded overflow-hidden shadow-sm" style="background-color: #e6edff;">
+                <img src="{% static 'images/calculator.png' %}" class="img-fluid w-100" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="Calculator">
+                <div class="p-3" style="background-color: #7eb6ff; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <h5 class="mb-2 fs-4">Scientific Calculator</h5>
+                    <p style="color: gold; font-size: 1.2rem;">★★★★★</p>
+                    <p class="mb-1 fw-bold fs-5">Rs. 50</p>
+                    <p class="fs-5"><strong>Buy a pack of 10 @ Rs. 249</strong></p>
+                    <button class="btn btn-light fw-bold px-4 py-2 fs-4">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Product Card -->
+        <div class="col-md-4 mb-4">
+            <div class="rounded overflow-hidden shadow-sm" style="background-color: #e6edff;">
+                <img src="{% static 'images/calculator1.png' %}" class="img-fluid w-100" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="Set Square">
+                <div class="p-3" style="background-color: #7eb6ff; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <h5 class="mb-2 fs-4">Scientific Calculator</h5>
+                    <p style="color: gold; font-size: 1.2rem;">★★★★★</p>
+                    <p class="mb-1 fs-5 fw-bold">Rs. 50</p>
+                    <p class="fs-5"><strong>Buy 3 or more @ Rs. 101.20</strong></p>
+                    <button class="btn btn-light fw-bold px-4 py-2 fs-4">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Product Card -->
+        <div class="col-md-4 mb-4">
+            <div class="rounded overflow-hidden shadow-sm" style="background-color: #e6edff;">
+                <img src="{% static 'images/calculator2.png' %}" class="img-fluid w-100" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="Stationery Set">
+                <div class="p-3" style="background-color: #7eb6ff; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <h5 class="mb-2 fs-4">Scientific Calculator</h5>
+                    <p style="color: gold; font-size: 1.2rem;">★★★★★</p>
+                    <p class="mb-1 fs-5 fw-bold">Rs. 50</p>
+                    <p class="fs-5"><strong>Buy 3 or more @ Rs. 101.20</strong></p>
+                    <button class="btn btn-light fw-bold px-4 py-2 fs-4">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Trending -->
+<div class="container py-5" style="background-color: #e6edff;">
+    <h4 class="text-center mb-4 fs-2"><strong>Trending</strong></h4>
+    <div class="row text-center">
+        {% for image in "123456" %}
+        <div class="col-md-4 mb-3">
+            <img src="{% static 'images/trending'|add:image|add:'.png' %}" class="img-fluid" alt="Trending {{ image }}">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Testimonial -->
+<div class="container py-5">
+    <h5 class="text-center fs-2 mb-4"><strong>Customer Testimonial</strong></h5>
+    <p class="text-center fs-4">Bulk Stationery. Better Prices. <br> Smarter Supply.</p>
+    <img src="{% static 'images/test1.jpg' %}" class="img-fluid rounded-circle d-block mx-auto" alt="Testimonial">
+    <blockquote class="blockquote text-center">
+        <p class="fs-4">Working with SupplyHive has been a game-changer for my store. The quality of the stationery is consistently <br> high, prices are competitive, and orders always arrive on time - making it easy to keep my shelves stocked and <br>customers happy.</p>
+        <p class="fw-bold fs-4">Priya M</p>
+        <p class="fs-4">Retail shop Owner</p>
+    </blockquote>
+</div>
+
+<!-- Back to School -->
+<div class="container py-5">
+    <h2 class="text-center mb-5"><strong>Back to School</strong></h2>
+    <div class="row justify-content-center text-center">
+        
+        <!-- Pencil Card -->
+        <div class="col-md-4 mb-4">
+            <div class="rounded overflow-hidden shadow-sm" style="background-color: #e6edff;">
+                <img src="{% static 'images/backtoschool1.png' %}" class="img-fluid w-100" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="Pencil">
+                <div class="p-3" style="background-color: #7eb6ff; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <h5 class="mb-2 fs-4">Pencil</h5>
+                    <p style="color: gold; font-size: 1.2rem;">★★★★★</p>
+                    <p class="mb-1 fw-bold fs-5">Rs. 50</p>
+                    <p class="fs-5"><strong>Buy 3 or more @ Rs. 101.20</strong></p>
+                    <button class="btn btn-light fw-bold px-4 py-2">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Open Notebook Card -->
+        <div class="col-md-4 mb-4">
+            <div class="rounded overflow-hidden shadow-sm" style="background-color: #e6edff;">
+                <img src="{% static 'images/backtoschool2.png' %}" class="img-fluid w-100" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="Open Notebook">
+                <div class="p-3" style="background-color: #7eb6ff; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <h5 class="mb-2 fs-4">Scientific Calculator</h5>
+                    <p style="color: gold; font-size: 1.2rem;">★★★★★</p>
+                    <p class="mb-1 fw-bold fs-5">Rs. 50</p>
+                    <p class="fs-5"><strong>Buy 3 or more @ Rs. 101.20</strong></p>
+                    <button class="btn btn-light fw-bold px-4 py-2">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spiral Notebook Card -->
+        <div class="col-md-4 mb-4">
+            <div class="rounded overflow-hidden shadow-sm" style="background-color: #e6edff;">
+                <img src="{% static 'images/backtoschool3.png' %}" class="img-fluid w-100" style="border-top-left-radius: 20px; border-top-right-radius: 20px;" alt="Spiral Notebook">
+                <div class="p-3" style="background-color: #7eb6ff; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+                    <h5 class="mb-2 fs-4">Scientific Calculator</h5>
+                    <p style="color: gold; font-size: 1.2rem;">★★★★★</p>
+                    <p class="mb-1 fw-bold fs-5">Rs. 50</p>
+                    <p class="fs-5"><strong>Buy 3 or more @ Rs. 101.20</strong></p>
+                    <button class="btn btn-light fw-bold px-4 py-2">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Team Section -->
+<div class="container py-5">
+    <h2 class="text-center mb-3"><strong>The Team</strong></h2>
+    <p class="text-center fs-5 mb-5">
+        Our team is a dedicated group of professionals passionate about delivering quality stationery in bulk with efficiency and care.
+        With expertise in sourcing, logistics, and customer service, we ensure every order meets the highest standards.
+    </p>
+
+    <div class="row text-center justify-content-center">
+        <!-- Team Member 1 -->
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/team1.png' %}" alt="Team Member 1"
+                class="img-fluid rounded-4 shadow-lg mb-3" style="width: 100%; height: auto;">
+            <h5 class="fw-bold">Seth Rollins</h5>
+            <p class="text-muted">Shop Owner</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/team2.png' %}" alt="Team Member 2"
+                class="img-fluid rounded-4 shadow-lg mb-3" style="width: 100%; height: auto;">
+            <h5 class="fw-bold">Seth Rollins</h5>
+            <p class="text-muted">Manager</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/team3.png' %}" alt="Team Member 3"
+                class="img-fluid rounded-4 shadow-lg mb-3" style="width: 100%; height: auto;">
+            <h5 class="fw-bold">Seth Rollins</h5>
+            <p class="text-muted">Shop Keeper</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

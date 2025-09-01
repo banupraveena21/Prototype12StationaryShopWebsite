@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5" style="background-color: #e6edff; min-height: 100vh;">
+    <h2 class="text-center fw-bold mb-4">My Cart</h2>
+
+    {% if cart_items %}
+    <div class="card p-4 mb-5">
+        <div class="table-responsive">
+            <table class="table align-middle text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td class="d-flex align-items-center gap-3">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="60" height="60" class="rounded shadow-sm">
+                            <div>
+                                <strong>{{ item.product.name }}</strong><br>
+                                <small>Rs. {{ item.product.price }}</small><br>
+                                <small class="text-success">Buy 10 or more @ Rs. {{ item.product.bulk_price }}</small>
+                            </div>
+                        </td>
+                        <td>
+                            <form action="{% url 'update_cart_item' item.id %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <div class="input-group justify-content-center">
+                                    <button name="action" value="decrement" class="btn btn-outline-secondary btn-sm" {% if item.quantity <= 1 %}disabled{% endif %}>−</button>
+                                    <input type="text" value="{{ item.quantity }}" class="form-control text-center" style="width: 50px;" readonly>
+                                    <button name="action" value="increment" class="btn btn-outline-secondary btn-sm">+</button>
+                                </div>
+                            </form>
+                        </td>
+                        <td>
+                            Rs. {% if item.quantity >= 10 %}{{ item.product.bulk_price }}{% else %}{{ item.product.price }}{% endif %}
+                        </td>
+                        <td>
+                            Rs. {{ item.total_price|floatformat:2 }}
+                        </td>
+                        <td>
+                            <form action="{% url 'remove_cart_item' item.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Total Calculation -->
+        <div class="row justify-content-end">
+            <div class="col-md-4">
+                <ul class="list-group list-group-flush fs-5">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Subtotal</span>
+                        <strong>Rs. {{ total|floatformat:2 }}</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total</span>
+                        <strong>Rs. {{ total|floatformat:2 }}</strong>
+                    </li>
+                </ul>
+                <a href="{% url 'billing' %}" class="btn btn-primary btn-lg w-100 mt-3">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info text-center">
+        Your cart is empty. <a href="{% url 'shop' %}" class="btn btn-outline-primary btn-sm ms-2">Shop Now</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

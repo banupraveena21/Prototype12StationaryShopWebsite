@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Banner -->
+<div class="container-fluid p-0">
+    <img src="{% static 'images/myorderbanner.png' %}" class="img-fluid" alt="Track Banner" style="width: 100%; max-height: 300px; object-fit: cover;">
+</div>
+
+<div class="container py-5" style="background-color: #cad9f7;">
+    <h4 class="text-center fw-bold mb-4">Order ID : OD123456789</h4>
+    <div class="text-center mb-4">Seller : Supplyhive<br>Rs. 249</div>
+
+    <!-- Order status tracking steps -->
+    <div class="timeline mx-auto mb-5" style="max-width: 400px;">
+        <div class="mb-3">✅ Order Confirmed, Apr 27</div>
+        <div class="mb-3">✅ Shipped</div>
+        <div class="mb-3">✅ Out for Delivery</div>
+        <div class="mb-3">✅ Delivery, May 1 by 11 PM</div>
+    </div>
+
+    <!-- Order Summary Card -->
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-header fw-bold">Your Order</div>
+        <div class="card-body">
+            <p class="d-flex justify-content-between">
+                <span>Scientific Calculator x 10</span>
+                <span>Rs.249</span>
+            </p>
+            <hr>
+            <p class="d-flex justify-content-between fw-bold">
+                <span>Total</span>
+                <span>Rs.249</span>
+            </p>
+            <div class="text-center mt-3">
+                <span class="badge bg-success">Cash on Delivery</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

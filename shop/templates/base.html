@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Supplyhive{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block styles %} {% endblock %}
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
+        <div class="container-fluid px-4">
+            <!-- Logo + Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" width="40" height="40" class="me-2">
+                <strong>Supplyhive</strong>
+            </a>
+
+            <!-- Navbar toggler for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Links -->
+                <ul class="navbar-nav mx-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary fw-bold" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'shop' %}">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'about' %}">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'signup' %}">Login/Register</a>
+                    </li>
+                </ul>
+
+               <!-- Search Bar -->
+<form class="d-flex ms-auto me-3" role="search">
+    <div class="input-group">
+        <input class="form-control text-white bg-primary border-0 rounded-start-pill px-3" 
+               type="search" 
+               placeholder="Search for Stationery" 
+               aria-label="Search"
+               style="::placeholder { color: white; }">
+        <span class="input-group-text bg-primary border-0 rounded-end-pill">
+            <i class="bi bi-search text-white"></i>
+        </span>
+    </div>
+</form>
+
+                <!-- Cart & User Icons -->
+                <div class="d-flex align-items-center gap-3">
+                    <a href="{% url 'my_cart' %}" class="text-dark"><i class="bi bi-cart fs-5"></i></a>
+                    <a href="{% url 'login' %}" class="text-dark"><i class="bi bi-person-circle fs-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+
+<!-- Footer -->
+<footer class="pt-5">
+    <div class="container pb-4">
+
+        <!-- Row 1: Logo + Brand -->
+        <div class="row mb-4">
+            <div class="col-md-12 d-flex align-items-center">
+                <img src="{% static 'images/logo.png' %}" alt="Supplyhive Logo" width="40" class="me-2">
+                <div>
+                    <h5 class="fw-bold mb-0">Supplyhive</h5>
+                    <small class="text-muted">2025 Supplyhive Limited</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: Headings (5 columns) -->
+        <div class="row text-start gap-5">
+            <!-- Company -->
+            <div class="col-6 col-md-2 mb-3">
+                <h6 class="fw-bold fs-5">Company</h6>
+                <ul class="list-unstyled fs-5">
+                    <li><a href="{% url 'about' %}" class="text-muted text-decoration-none">About us</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Supplyhive corporate</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Careers</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Team</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact us -->
+            <div class="col-6 col-md-2 mb-3">
+                <h6 class="fw-bold fs-5">Contact us</h6>
+                <ul class="list-unstyled fs-5">
+                    <li><a href="#" class="text-muted text-decoration-none">Help & Support</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Partner with us</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Ride with us</a></li>
+                </ul>
+            </div>
+
+            <!-- Available in -->
+            <div class="col-6 col-md-2 mb-3">
+                <h6 class="fw-bold fs-5">Available in</h6>
+                <ul class="list-unstyled fs-5">
+                    <li><a href="#" class="text-muted text-decoration-none">Coimbatore</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Bengaluru</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Chennai</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Kolkata</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="col-6 col-md-2 mb-3">
+                <h6 class="fw-bold fs-5">Legal</h6>
+                <ul class="list-unstyled fs-5">
+                    <li><a href="#" class="text-muted text-decoration-none">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Cookie policy</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Information -->
+            <div class="col-6 col-md-2 mb-3">
+                <h6 class="fw-bold fs-5">Information</h6>
+                <ul class="list-unstyled fs-5">
+                    <li><a href="#" class="text-muted text-decoration-none">Location</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Email</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">Social Media</a></li>
+                </ul>
+
+                <!-- Social Media Icons -->
+                <div class="mt-2">
+                    <a href="#" class="me-2"><img src="{% static 'images/instagram.png' %}" width="24" alt="Instagram"></a>
+                    <a href="#" class="me-2"><img src="{% static 'images/facebook.png' %}" width="24" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/whatsapp.png' %}" width="24" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 3: App download section -->
+        <div class="row mt-4 align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <p class="fw-medium mb-0">For better experience , download the app now</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#"><img src="{% static 'images/googleplay.png' %}" width="150" class="me-2" alt="Google Play"></a>
+                <a href="#"><img src="{% static 'images/appstore.png' %}" width="150" alt="App Store"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

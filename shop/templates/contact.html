@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+
+    <!-- Banner Image -->
+    <div class="mb-5">
+        <img src="{% static 'images/contactbanner.png' %}" class="img-fluid rounded w-100" alt="Contact Banner">
+    </div>
+
+    <!-- Quote -->
+    <h3 class="text-center fw-bold fs-2 mb-4 mt-5">"Your Perfect Stationery Partner Is Just a Message Away."</h3>
+
+    <!-- Contact Cards -->
+    <div class="row justify-content-center text-center mb-5 gap-3" style="background-color: rgb(175, 228, 241); border: 2px solid black;
+    border-radius: 10px;">
+        <h1 class="mt-5 mb-4">Contact Details</h2>
+        <div class="col-md-3 mb-3">
+            <div class="bg-primary text-white p-4 rounded shadow-sm">
+                <i class="bi bi-geo-alt-fill fs-2"></i>
+                <p class="mt-2 mb-0">Location</p>
+                <small>78 Beechwood Ave.<br>Sarasota, FL 34231</small>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="bg-primary text-white p-4 rounded shadow-sm">
+                <i class="bi bi-envelope-fill fs-2"></i>
+                <p class="mt-2 mb-0">E-mail</p>
+                <small>example@gmail.com<br>debra.holt@example.com</small>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="bg-primary text-white p-4 rounded shadow-sm">
+                <i class="bi bi-telephone-fill fs-2"></i>
+                <p class="mt-2 mb-0">Contact</p>
+                <small>019457896332<br>016457896333</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map -->
+    <div class="mb-5 text-center">
+        <img src="{% static 'images/map.png' %}" class="img-fluid rounded w-100" alt="Map">
+    </div>
+
+    <!-- Contact Form -->
+    <div class="bg-white rounded shadow-sm p-4 mb-5" style="border: 2px solid black;">
+        <h5 class="fw-bold text-center fs-3 mb-3">Have a List? We’ve Got the Stationery—Contact Us Now!</h5>
+        <p class="text-center fs-5">Write Us</p>
+        <p class="text-center fs-5">We are always happy to be of service to you. Be sure to listen to the prompt to help direct you to the right person.</p>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-md-6">
+                    {{ form.name.label_tag }} {{ form.name }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.email.label_tag }} {{ form.email }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.phone.label_tag }} {{ form.phone }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.message.label_tag }} {{ form.message }}
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary rounded-pill text-dark px-4">Send Message</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

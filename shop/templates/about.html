@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <!-- Banner Image -->
+    <div class="text-center mb-5">
+        <img src="{% static 'images/aboutbanner.png' %}" class="img-fluid rounded w-100"  alt="Banner Image">
+    </div>
+
+    <!-- Tagline -->
+    <h2 class="text-center fs-1 fw-bold mb-5">"Smart Supplies for Bright Futures."</h2>
+
+    <!-- Introduction -->
+    <div class="text-center mx-auto mt-5 fs-4 mb-5">
+        <p>We provide quality stationery and school supplies to support learning, creativity, and organization. From classrooms to home desks, we’re here to help students and educators stay prepared and inspired.</p>
+    </div>
+
+    <!-- Product Highlights -->
+    <div class="row text-center mb-5">
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/about1.png' %}" class="img-fluid rounded" alt="books">
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/about2.png' %}" class="img-fluid rounded" alt="books">
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/about3.png' %}" class="img-fluid rounded" alt="books">
+        </div>
+    </div>
+
+    <!-- Pen & Pencil -->
+    <div class="mb-5 text-start">
+    <h5 class="fw-bold fs-2 mb-4">PEN & PENCIL</h5>
+    <p class="fs-4">
+        At Supplyhive, we believe a great pen is more than just a writing tool—it’s an expression of thought, precision, and personality.
+        From smooth everyday ballpoints to elegant signature pens, we offer reliable writing instruments designed for comfort, style, and performance.
+    </p>
+    <img src="{% static 'images/pen_pencils.png' %}" class="img-fluid rounded mt-3" alt="Pens and Pencils">
+</div>
+
+
+    <!-- Bags Section -->
+    <div class="mb-5 mt-5">
+        <h5 class="fw-bold fs-2 mb-5">BAGS</h5>
+        <div class="row">
+                <img src="{% static 'images/aboutbags.png' %}" class="img-fluid rounded w-100" alt="Bag 1">
+           </div>
+    </div>
+
+    <!-- All Stationery -->
+    <div class="mb-5 mt-5">
+        <h5 class="fw-bold fs-2 mb-4">ALL STATIONERY</h5>
+        <p class="fs-4">We offer a wide range of stationery essentials, from notebooks, folders, and sticky notes to markers, staplers, and rulers. Each item is chosen for quality, functionality, and style—perfect for school, office, or creative use.</p>
+        <div class="row mt-5">
+                <img src="{% static 'images/aboutstationery.png' %}" class="img-fluid rounded" alt="Notepad">
+        </div>
+    </div>
+
+    <!-- Team Section -->
+<div class="container py-5">
+    <h2 class="text-center mb-3"><strong>The Team</strong></h2>
+    <p class="text-center fs-5 mb-5">
+        Our team is a dedicated group of professionals passionate about delivering quality stationery in bulk with efficiency and care.
+        With expertise in sourcing, logistics, and customer service, we ensure every order meets the highest standards.
+    </p>
+
+    <div class="row text-center justify-content-center">
+        <!-- Team Member 1 -->
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/team1.png' %}" alt="Team Member 1"
+                class="img-fluid rounded-4 shadow-lg mb-3" style="width: 100%; height: auto;">
+            <h5 class="fw-bold">Seth Rollins</h5>
+            <p class="text-muted">Shop Owner</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/team2.png' %}" alt="Team Member 2"
+                class="img-fluid rounded-4 shadow-lg mb-3" style="width: 100%; height: auto;">
+            <h5 class="fw-bold">Seth Rollins</h5>
+            <p class="text-muted">Manager</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="col-md-4 mb-4">
+            <img src="{% static 'images/team3.png' %}" alt="Team Member 3"
+                class="img-fluid rounded-4 shadow-lg mb-3" style="width: 100%; height: auto;">
+            <h5 class="fw-bold">Seth Rollins</h5>
+            <p class="text-muted">Shop Keeper</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

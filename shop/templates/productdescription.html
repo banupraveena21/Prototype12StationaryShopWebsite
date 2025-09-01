@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-start">
+        <div class="col-md-5">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded shadow w-100">
+            <div class="text-center mt-3">
+                <h5>{{ product.name }}</h5>
+                <p class="fw-bold">Rs. {{ product.price }}</p>
+                <p><strong>Buy pack of 10 @ Rs. {{ product.bulk_price }}</strong></p>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <h3 class="fw-bold text-center mb-5">Product Description</h3>
+            <h4 class="fw-bold mb-4">{{ product.name }}</h4>
+            <h5 class="fw-bold mb-3">Advanced Functionality for Students and Professionals</h5>
+
+            <p class="mb-4">
+                {{ product.description }}
+            </p>
+
+            <h5 class="fw-bold">Key Features:</h5>
+            <ul class="list-unstyled">
+                {% for feature in product.features.splitlines %}
+                <li>• {{ feature }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container mt-5">
+    <h3 class="text-center fw-bold mb-5">Comments & Review</h3>
+
+    <!-- Review 1 -->
+    <div class="mb-4">
+        <h5 class="mb-3"><strong>1. Positive Review – Student Perspective</strong></h5>
+        <p class="fw-semibold">Rating: 
+            <span class="text-dark">★★★★★</span>
+        </p>
+        <blockquote class="blockquote">
+            <p>“This calculator has been a lifesaver for my high school math and physics classes. It’s easy to use, has all the necessary functions, and the multi-line display makes checking work super simple. Definitely worth it for students!”</p>
+        </blockquote>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="mb-4">
+        <h5 class="mb-3"><strong>2. Positive Review – Professional/Engineer</strong></h5>
+        <p class="fw-semibold">Rating: 
+            <span class="text-dark">★★★★★</span>
+        </p>
+        <blockquote class="blockquote">
+            <p>“Excellent build quality and functionality. I use this for quick field calculations, and it's accurate and responsive. The layout is intuitive, and it handles complex equations with no trouble. Great value for engineers or technicians.”</p>
+        </blockquote>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="mb-4">
+        <h5 class="mb-3"><strong>3. Neutral Review – General Use</strong></h5>
+        <p class="fw-semibold">Rating: 
+            <span class="text-dark">★★★★☆</span>
+        </p>
+        <blockquote class="blockquote">
+            <p>“Good calculator overall. It covers all the basic and advanced functions I need, though the user manual could be clearer for beginners. Once you get used to the button layout, it’s a solid tool.”</p>
+        </blockquote>
+    </div>
+
+    <!-- Review 4 -->
+    <div class="mb-4">
+        <h5 class="mb-3"><strong>4. Critical Review – Beginner User</strong></h5>
+        <p class="fw-semibold">Rating: 
+            <span class="text-dark">★★★☆☆</span>
+        </p>
+        <blockquote class="blockquote">
+            <p>“I found this calculator a bit overwhelming at first. It has a lot of functions, but the instructions weren’t very beginner-friendly. It works fine, but I had to look up tutorials online to figure it out.”</p>
+        </blockquote>
+    </div>
+
+    <!-- Call to Action Buttons -->
+    <div class="text-center mt-5 mb-5">
+        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary btn-lg mx-2">ADD TO CART</a>
+        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary btn-lg mx-2">BUY NOW</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

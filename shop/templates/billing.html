@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Container background */
+    .billing-container {
+        background-color: #c7d3f9;
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    /* Billing details and order summary boxes */
+    .billing-box, .order-box {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Billing form labels inline */
+    .form-inline-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    .form-inline-label label {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    .form-inline-label .form-control {
+        border-radius: 12px;
+        background-color: #699dfc;
+        border: none;
+        color: white;
+        padding-left: 1rem;
+        width: 45%;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    /* Order summary styling */
+    .order-box h3 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .order-list {
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 1rem;
+    }
+    .order-list .order-item {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+    }
+
+    /* Total section styling */
+    .total-box {
+        background-color: #699dfc;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    /* Payment method box */
+    .payment-method-box {
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 2rem;
+    }
+
+    /* Place order button */
+    .place-order-btn {
+        background-color: #1777f2;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        padding: 10px 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        width: 250px;
+    }
+</style>
+
+<div class="container billing-container">
+    <h2 class="mb-4 fw-bold">Billing Details</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <!-- Billing Details Box -->
+            <div class="col-md-6 billing-box">
+                <div class="form-inline-label">
+                    <label for="id_name">Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-inline-label">
+                    <label for="id_street_address">Street Address</label>
+                    {{ form.street_address }}
+                </div>
+                <div class="form-inline-label">
+                    <label for="id_town_city">Town/City</label>
+                    {{ form.town_city }}
+                </div>
+                <div class="form-inline-label">
+                    <label for="id_postal_code">Postal Code</label>
+                    {{ form.postal_code }}
+                </div>
+            </div>
+
+            <!-- Order Summary Box -->
+            <div class="col-md-6 order-box">
+                <h3>Your Order</h3>
+                <div class="order-list">
+                    {% for item in cart_items %}
+                    <div class="order-item">
+                        <div><strong>{{ item.product.name }}</strong> x {{ item.quantity }}</div>
+                        <div><strong>Rs.{{ item.total_price }}</strong></div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="total-box">
+                    <div>Total</div>
+                    <div>Rs.{{ total }}</div>
+                </div>
+
+                <div class="payment-method-box">
+                    <div class="mb-2 fw-semibold">Payment Method</div>
+                    {{ form.payment_method }}
+                </div>
+
+                <button type="submit" class="place-order-btn">Place order</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

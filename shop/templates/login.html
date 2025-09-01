@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}  {# Ensure widget_tweaks is installed #}
+
+{% block styles %}
+<style>
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+    <!-- Banner -->
+    <div class="mb-4">
+        <img src="{% static 'images/signupbanner.png' %}" class="img-fluid rounded w-100" alt="Login Banner">
+    </div>
+
+    <!-- Tagline -->
+    <h3 class="text-center fw-bold fs-2 mb-5">"Your Perfect Stationery Partner Is Just a Message Away."</h3>
+
+    <!-- Login Form Card -->
+    <div class="card mx-auto p-4" style="max-width: 500px; border-radius: 12px;">
+        <h4 class="text-center mb-4 fw-bold">Login</h4>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-md-6">
+                    {% render_field form.email class="form-control bg-primary text-white text-center fw-bold rounded" placeholder="Email ID" %}
+                </div>
+                <div class="col-md-6">
+                    {% render_field form.otp class="form-control bg-primary text-white text-center fw-bold rounded" placeholder="OTP" %}
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary px-5 rounded fw-bold">Login</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

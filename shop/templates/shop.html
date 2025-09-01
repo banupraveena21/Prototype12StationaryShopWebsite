@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block styles %}
+<style>
+    .form-check-input {
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    .form-check-label {
+        font-size: 15px;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Top Banner Image -->
+    <div class="mb-4">
+        <img src="{% static 'images/shopbanner.png' %}" class="img-fluid rounded-4 w-100" alt="Shop Banner">
+    </div>
+
+    <div class="row">
+        <!-- Sidebar (Categories + Filter) -->
+        <div class="col-md-3 mb-4">
+            <div class="bg-white p-3 rounded shadow-sm " >
+                <h6 class="fw-bold mb-3" style="background-color: #e6edff;"><i class="bi bi-list"></i> Categories</h6>
+                <ul class="list-unstyled" style="background-color: #e6edff;">
+                    <li><a href="{% url 'category_view' 'calculators' %}" class="text-decoration-none text-dark">Calculators</a></li>
+                    <li><a href="{% url 'category_view' 'staplers' %}" class="text-decoration-none text-dark">Staplers</a></li>
+                    <li><a href="{% url 'category_view' 'pens' %}" class="text-decoration-none text-dark">Pens</a></li>
+                    <li><a href="{% url 'category_view' 'scissors' %}" class="text-decoration-none text-dark">Scissors</a></li>
+                    <li><a href="{% url 'category_view' 'papers' %}" class="text-decoration-none text-dark">Notebooks</a></li>
+                </ul>
+
+                <hr>
+
+                <!-- Filter by Price (checkbox style) -->
+                <h6 class="fw-bold mt-4" style="background-color: #e6edff;">Filter by Price</h6>
+                <form method="get" class="mt-3 d-grid gap-2 " style="background-color: #e6edff;">
+                    {% for range in price_ranges %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="price" value="{{ range.value }}"
+    id="price_{{ forloop.counter }}" {% if range.value in selected_filters %}checked{% endif %}>
+
+                        <label class="form-check-label" for="price_{{ forloop.counter }}">
+                            {{ range.label }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary mt-2">Apply</button>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="col-md-9">
+            <h4 class="text-center fs-1 fw-bold mb-4">"Where Ideas Begin – Shop Smart, Stay Sharp!"</h4>
+
+            <div class="text-end fw-bold fs-5 mb-3">
+                Office Basics
+            </div>
+
+            <p class="text-muted">Showing Result 1-{{ products|length }} of {{ products|length }} results</p>
+
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm rounded-4 border-0 h-100">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        <div class="card-body text-center bg-primary-subtle rounded-bottom-4">
+                            <h6>{{ product.name }}</h6>
+                            <p>
+                                {% for i in "12345"|slice:":product.rating"|make_list %}
+                                ⭐
+                                {% endfor %}
+                            </p>
+                            <p>Rs. {{ product.price }}<br>
+                                <small>Buy 3 or more @ Rs. {{ product.bulk_price }}</small>
+                            </p>
+                        <a href="{% url 'product_description' product.pk %}" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-center">No products found in this range.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

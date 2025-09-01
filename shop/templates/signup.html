@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block styles %}
+<style>
+
+    .signup-card {
+        max-width: 480px;
+        margin: 2rem auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .signup-card h4 {
+        margin-bottom: 1.5rem;
+        font-weight: normal;
+    }
+
+    input.form-control {
+        background-color: #7da8ff;
+        color: #000;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 15px;
+        border: none;
+        height: 48px;
+        padding: 0.375rem 1rem;
+    }
+
+    input::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 600;
+        text-align: center;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 6px #3a67ff;
+        background-color: #5a7ee8;
+        color: white;
+    }
+
+    button.btn-primary {
+        background-color: #1774ff;
+        border: none;
+        border-radius: 15px;
+        padding: 0.5rem 2rem;
+        font-weight: 600;
+        box-shadow: 0 4px 8px rgba(23,116,255,0.6);
+    }
+
+    button.btn-primary:hover {
+        background-color: #145ecc;
+    }
+
+    .row.g-3 > div {
+        margin-bottom: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+    <div class="mb-4">
+        <img src="{% static 'images/signupbanner.png' %}" class="img-fluid rounded w-100" alt="Signup Banner">
+    </div>
+
+    <h3 class="text-center fs-5 mb-5" style="font-weight: 400;">
+        "Your Perfect Stationery Partner Is Just a Message Away."
+    </h3>
+
+    <div class="signup-card">
+        <h4>Signin</h4>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-md-6">
+                    {% render_field form.name class="form-control" placeholder="Your Name" autocomplete="name" %}
+                </div>
+                <div class="col-md-6">
+                    {% render_field form.email class="form-control" placeholder="Email ID" %}
+                </div>
+                <div class="col-md-6">
+                    {% render_field form.phone class="form-control" placeholder="Phone Number" %}
+                </div>
+                <div class="col-md-6">
+                    {% render_field form.otp class="form-control" placeholder="OTP" %}
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary px-5">Submit now</button>
+            </div>
+        </form>
+
+        {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+
+    </div>
+
+</div>
+{% endblock %}
